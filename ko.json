@@ -1,0 +1,12 @@
+{
+  "ui": {
+    "action": {
+      "done": "완료",
+      "cancel": "취소"
+    }
+  },
+  "dashboard": {
+    "greeting": "환영합니다!",
+    "infoText": "여기에 세부 정보를 입력해 주세요."
+  }
+}

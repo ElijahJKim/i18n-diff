@@ -1,19 +1,22 @@
-import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite";
+import { svelte } from "@sveltejs/vite-plugin-svelte";
+import { crx } from "@crxjs/vite-plugin";
+import manifest from "./manifest.json" with { type: "json" };
+import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
-	plugins: [sveltekit()],
-	css: {
-    preprocessorOptions: {
-      scss: {
-        // 1. prependData 대신 additionalData를 사용합니다.
-        // 2. 경로는 $lib을 사용하여 정확하게 지정합니다.
-        // 3. 파일명이 _variable.scss(단수)인지 _variables.scss(복수)인지 꼭 확인하세요!
-        additionalData: `
-          @use '$lib/styles/_variables.scss' as *;
-          @use '$lib/styles/_mixins.scss' as *;
-        `
-      }
-    }
-  }
+  plugins: [svelte(), crx({ manifest })],
+  resolve: {
+    alias: {
+      $lib: fileURLToPath(new URL("./src/lib", import.meta.url)),
+    },
+  },
+  server: {
+    port: 5173,
+    strictPort: true,
+    hmr: { port: 5173 },
+  },
+  build: {
+    modulePreload: false,
+  },
 });

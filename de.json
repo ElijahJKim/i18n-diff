@@ -1,0 +1,12 @@
+{
+  "ui": {
+    "action": {
+      "done": "Abgeschlossen und bestätigen",
+      "cancel": "Abbrechen und zurückgehen"
+    }
+  },
+  "dashboard": {
+    "greeting": "Herzlich willkommen in Ihrem Dashboard!",
+    "infoText": "Bitte geben Sie hier Ihre vollständigen Detailinformationen ein."
+  }
+}
