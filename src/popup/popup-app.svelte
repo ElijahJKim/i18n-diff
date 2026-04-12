@@ -44,7 +44,7 @@
     if (!file) return;
 
     if (file.size > 512 * 1024 * 1024) {
-      alert("파일 크기가 512MB를 초과할 수 없습니다.");
+      alert("File size exceeds 512MB");
       return;
     }
 
@@ -69,7 +69,7 @@
         });
       }
     } catch (err: any) {
-      alert("파일을 읽는 데 실패했습니다: " + err.message);
+      alert("Failed to read file: " + err.message);
     }
   }
 
